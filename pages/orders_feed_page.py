@@ -20,8 +20,8 @@ class OrdersFeedPage(BasePage):
         return self.wait_visibility_of_element(LocatorsOrdersFeedPage.in_work)
 
     @allure.step('Получение номер заказа под надписью "В работе"')
-    def text_order_number_in_work(self):
-        return int(self.get_text(LocatorsOrdersFeedPage.in_work))
+    def get_order_number_in_work(self):
+        return self.get_text(LocatorsOrdersFeedPage.in_work)
 
     @allure.step('Поиск номера карты заказа')
     def find_order_card(self):

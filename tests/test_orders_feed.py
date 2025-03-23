@@ -97,9 +97,9 @@ class TestOrdersFeed:
 
         api_method = ApiMethods()
         api_method.create_orders(access_token)
-        number_orders_current = api_method.get_order_number(create_user_account)
+        number_orders_current = api_method.get_order_number(access_token)
 
         orders_feed_page.wait_visibility_in_work()
-        number_orders_on_site = orders_feed_page.text_order_number_in_work()
+        number_orders_on_site = int(orders_feed_page.get_order_number_in_work())
 
         assert number_orders_current == number_orders_on_site
