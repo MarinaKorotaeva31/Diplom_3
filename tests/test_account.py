@@ -2,7 +2,6 @@ import allure
 from urls import Urls
 from pages.account_page import AccountPage
 from pages.main_page import MainPage
-from locators.locators_account import LocatorsAccountPage
 
 class TestAccount:
     @allure.title('Проверка перехода по клику на «Личный кабинет»')
@@ -47,7 +46,7 @@ class TestAccount:
         main_page.wait_clickable_order_button()  # ожидание загрузки главной страницы
         # (кнопки оформить заказ) для прохода теста в firefox
         main_page.click_on_login_button()
-        account_page.wait_visibility_of_element(LocatorsAccountPage.button_exit)
+        account_page.wait_visibility_exit_button()
         account_page.click_on_exit_button()
         account_page.wait_visibility_of_enter_button()
         current_url = account_page.get_current_url()

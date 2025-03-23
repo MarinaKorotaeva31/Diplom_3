@@ -33,6 +33,10 @@ class AccountPage(BasePage):
     def click_on_exit_button(self):
         return self.click_on_element(LocatorsAccountPage.button_exit, self.browser)
 
+    @allure.step('Ожидание видимости кнопки "Выход"')
+    def wait_visibility_exit_button(self):
+        return self.wait_visibility_of_element(LocatorsAccountPage.button_exit)
+
     @allure.step('Нажатие на ссылку "Восстановить пароль"')
     def click_on_recovery_password_button(self):
         return self.click_on_element(LocatorsAccountPage.href_recovery_password, self.browser)
