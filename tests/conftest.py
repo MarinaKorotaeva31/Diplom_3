@@ -3,24 +3,12 @@ import allure
 import requests
 from data import Data
 from urls import Urls
-from selenium import webdriver
-
-class WebdriverFactory:
-
-    @staticmethod
-    def get_webdriver(browser_name):
-        if browser_name == "firefox":
-            return webdriver.Firefox()
-        if browser_name == "chrome":
-            return webdriver.Chrome()
-        else:
-            raise ValueError(f'Unsupported browser {browser_name}')
-
+from webdriver_factory import WebdriverFactory
 
 def pytest_addoption(parser):
-    parser.addoption('--browser', action='store', default='firefox', help='Browser to run tests on')
+    parser.addoption('--browser', action='store', default='chrome', help='Browser to run tests on')
 
-
+@allure.step('Создание и закрытие браузера')
 @pytest.fixture
 def browser(request):
     browser_name = request.config.getoption('--browser')

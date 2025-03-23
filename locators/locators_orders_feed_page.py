@@ -1,8 +1,7 @@
 from selenium.webdriver.common.by import By
 
 class LocatorsOrdersFeedPage:
-    # details_card = [By.CLASS_NAME, 'Modal_modal__container__Wo2l_']  # локатор карты заказа в ленте
-    # локатор деталей в ленте заказов:
+    # крестик в деталях заказа:
     details_card = [By.CSS_SELECTOR, '.Modal_modal__close_modified__3V5XS']
     # надпись "В работе":
     in_work = [By.XPATH, '//*[contains(@class,"orderListReady")]//li[contains(@class,"digits-default")]']
